@@ -3,7 +3,7 @@
 describe('Controller: NavigationCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('commanderyeoApp'));
+  beforeEach(module('cocoApp'));
 
   var NavigationCtrl,
     scope;

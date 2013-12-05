@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('commanderyeoApp')
+angular.module('cocoApp')
   .controller('NavigationCtrl', ['$scope', function ($scope) {
     $scope.navList = [
       { url: 'route1', title: 'Route 1', name: 'route1'},

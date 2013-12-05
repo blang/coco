@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('commanderyeoApp', [
+angular.module('cocoApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
