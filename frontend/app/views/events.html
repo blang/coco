@@ -1,0 +1,14 @@
+<div class="row">
+  <h4>Events</h4>
+  <div class="col-md-12">
+    <div class="row eventlistentry" ng-repeat="event in events"> 
+      <div class="col-md-2">
+        <img src="images/eventdefault1.png" alt="{{event.title}}" />
+      </div>
+      <div class="col-md-l0">
+        <h5><a href="#/event/{{event.id}}">{{event.title}}</a></h5>
+        <p>{{event.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

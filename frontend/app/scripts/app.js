@@ -18,6 +18,11 @@ angular.module('cocoApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/events', {
+        name: 'events',
+        templateUrl: 'views/events.html',
+        controller: 'EventsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

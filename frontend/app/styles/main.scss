@@ -67,6 +67,15 @@ body {
     margin-top: 28px;
 }
 
+.eventlistentry img {
+  height: 80px;
+  width: 80px;
+}
+
+.eventlistentry {
+  padding-top: 10px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
