@@ -1,0 +1,82 @@
+<h2>{{event.type}} {{event.title}}</h4>
+<div class="row">
+  <!-- <p>{{event.description}}</p> -->
+  <div class="col-md-6">
+    <h3>Zeiten</h3>
+    <p>{{event.dates.missionStart}}</p>
+    <p>{{event.dates.duration}}</p>
+  </div>
+  <div class="col-md-6">
+    <h3>Anmeldung</h3>
+    <p>bis {{event.dates.registerEnd}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Missionsbauer</h3>
+    <p>{{event.creator}}</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Missionsleitung</h3>
+    <p>{{event.organizer}}</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Spieler</h3>
+    <p>{{event.playerMin}} bis {{event.playerMax}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Server</h3>
+    <p>{{event.server}}</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Modstring</h3>
+    <p>{{event.modstring}}</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Island</h3>
+    <p>{{event.island}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Medicsystem</h3>
+    <p>{{event.setup.medic}}</p>
+  </div>
+
+  <div class="col-md-4">
+    <h3>Respawn/JIP</h3>
+    <p>{{event.setup.respawn}}</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Loadout</h3>
+    <p>{{event.setup.weapons}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Missionsbeschreibung</h3>
+    <p>{{event.longdesc}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Intel</h3>
+    <p>{{event.intel}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Bilder</h3>
+    <p>{{event.images}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Objectives</h3>
+    <p>{{event.objectives}}</p>
+  </div>
+</div>
