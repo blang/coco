@@ -40,6 +40,6 @@ describe('Controller: ParticipationCtrl', function () {
 
   it('should attach the participation data to the scope', function () {
     scope.$apply(); //resolve promise
-    expect(scope.participation).toBe(mockState);
+    expect(scope.participation).toEqual(mockState);
   });
 });

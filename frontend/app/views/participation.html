@@ -1,10 +1,10 @@
 <div class="participation">
     <div class="btn-group">
-      <button type="button" class="btn btn-default" ng-click="participation.state = 1" ng-class="{'btn-primary': (participation.state==1)}">Teilnahme</button>
+      <button type="button" class="btn btn-default" ng-click="participation.state = 3" ng-class="{'btn-primary': (participation.state==3)}">Teilnahme</button>
       <button type="button" class="btn btn-default" ng-click="participation.state = 2" ng-class="{'btn-primary': (participation.state==2)}">Verspaetet</button>
-      <button type="button" class="btn btn-default" ng-click="participation.state = 0" ng-class="{'btn-primary': (participation.state==0)}">Keine Teilnahme</button>
+      <button type="button" class="btn btn-default" ng-click="participation.state = 1" ng-class="{'btn-primary': (participation.state==1)}">Keine Teilnahme</button>
     </div>
-    <div ng-if="participation.state > 0" class="slotlist">
+    <div ng-if="participation.state > 1" class="slotlist">
     <div class="table-responsive">
     <table class="table table-hover table-responsive">
     <thead>
@@ -32,5 +32,5 @@
     </table>
     </div>
   </div>
-  <button type="button" class="btn btn-success">Speichern</button>
+  <button type="button" class="btn btn-success" ng-click="save()">Speichern</button>
 </div>

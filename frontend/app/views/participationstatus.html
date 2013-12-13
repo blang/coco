@@ -1,0 +1,9 @@
+<div class="participationstatus">
+<span class="label label-success" ng-if="getLabelState(part) == 2"><i class="fa fa-check-circle"></i> Angemeldet</span>
+<span class="label label-danger" ng-if="getLabelState(part) == 1"><i class="fa fa-times-circle"></i> Abgemeldet</span>
+<span class="label label-info" ng-if="getLabelState(part) == 3"><i class="fa fa-clock-o"></i> Moderation</span>
+<span class="label label-info" ng-if="getLabelState(part) == 4"><i class="fa fa-clock-o"></i> Zuweisung</span>
+<span class="label label-warning" ng-if="getLabelState(part) == 5"><i class="fa fa-exclamation-triangle"></i> Rücksprache</span>
+<span class="label label-warning" ng-if="getLabelState(part) == 0"><i class="fa fa-bell-o"></i> Neu</span>
+
+</div>
