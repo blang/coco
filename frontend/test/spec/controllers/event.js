@@ -6,25 +6,31 @@ describe('Controller: EventCtrl', function () {
   beforeEach(module('cocoApp'));
 
   var ctrl,
-    scope;
+    scope,
+    mockFactory;
   var mockEvent = {id: 1, title: 'Event Title 1', description: 'Event description 1'};
-  var mockEventsFactory = {
-    'getEventById' : function(){
-      return mockEvent;
-    }
-  };
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $routeParams, $rootScope) {
     scope = $rootScope.$new();
+    mockFactory = {
+      'getEventById' : function(){
+        return {
+          'success': function(callback){
+            callback(mockEvent);
+          }
+        };
+      }
+    };
     ctrl = $controller('EventCtrl', {
       $scope: scope,
       $routeParams : {id: 1},
-      EventsFactory: mockEventsFactory
+      EventsFactory: mockFactory
     });
   }));
 
   it('should attach a list of navigation items to the scope', function () {
+    scope.$apply();
     expect(scope.event).toEqual(mockEvent);
   });
 });

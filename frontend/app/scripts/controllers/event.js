@@ -5,5 +5,7 @@ angular.module('cocoApp')
     if(!$routeParams.id){
       console.log('Wrong route param');
     }
-    $scope.event = EventsFactory.getEventById($routeParams.id);
+    EventsFactory.getEventById($routeParams.id).success(function(data){
+      $scope.event = data;
+    });
   }]);

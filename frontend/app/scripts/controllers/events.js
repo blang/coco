@@ -2,5 +2,7 @@
 
 angular.module('cocoApp')
   .controller('EventsCtrl', ['$scope','EventsFactory', function ($scope, EventsFactory) {
-    $scope.events = EventsFactory.getEvents();
+    EventsFactory.getEvents().success(function(data){
+      $scope.events = data;
+    });
   }]);

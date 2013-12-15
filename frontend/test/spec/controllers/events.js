@@ -6,27 +6,35 @@ describe('Controller: EventsCtrl', function () {
   beforeEach(module('cocoApp'));
 
   var ctrl,
-    scope;
-  var mockEventsFactory = {
-    'getEvents' : function(){
-      return [
-        {id: 1, title: 'Event Title 1', description: 'Event description 1'},
-        {id: 2, title: 'Event Title 2', description: 'Event description 2'}
-      ];
-
-    }
-  };
+    scope,
+    mockFactory;
+  var mockEvents = [{id: 1, title: 'Event Title 1', description: 'Event description 1'},
+      {id: 2, title: 'Event Title 2', description: 'Event description 2'}];
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, $q) {
     scope = $rootScope.$new();
+    mockFactory = {
+      'getEvents' : function(){
+        var def = $q.defer();
+        def.resolve(mockEvents);
+        return {
+          success : function(fn){
+            def.promise.then(function(res){
+              fn(res);
+            });
+          }
+        };
+      }
+    };
     ctrl = $controller('EventsCtrl', {
       $scope: scope,
-      EventsFactory: mockEventsFactory
+      EventsFactory: mockFactory
     });
   }));
 
   it('should attach a list of navigation items to the scope', function () {
-    expect(scope.events.length).toBe(2);
+    scope.$apply();
+    expect(scope.events).toEqual(mockEvents);
   });
 });
