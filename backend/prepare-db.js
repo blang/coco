@@ -1,6 +1,6 @@
 if(!(['test','development'].indexOf(process.env.NODE_ENV || 'development') > -1 )){
   console.error('Can\'t execute database preparation on non-development database, could be dangerous!');
-  return;
+  process.exit(1);
 }
 
 var mongoose = require('mongoose'),
