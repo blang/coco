@@ -14,10 +14,17 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-env": "~0.4.1",
     "grunt-develop": "~0.2.2",
     "grunt-contrib-watch": "~0.5.3",
+    "jshint": "~2.3.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "jshint-stylish": "~0.1.4",
+    "grunt-newer": "~0.6.0",
+    "grunt-jasmine-node": "~0.1.0",
     "request": "~2.27.0",
     "time-grunt": "~0.1.1",
-    "load-grunt-tasks": "~0.2.0"
+    "load-grunt-tasks": "~0.2.0",
+    "supertest": "~0.8.2"
   }
 }

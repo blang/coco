@@ -1,34 +1,44 @@
+'use strict';
 var path = require('path'),
-    rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development';
-
-var config = {
-  development: {
-    root: rootPath,
-    app: {
-      name: 'backend'
+  rootPath = path.normalize(__dirname + '/..');
+module.exports = function (environment) {
+  /*jshint camelcase: false */
+  var env = environment || 'development';
+  var dboptions = {
+    server: {
+      poolSize: 5
+    }
+  };
+  var config = {
+    development: {
+      root: rootPath,
+      app: {
+        name: 'backend'
+      },
+      port: 3000,
+      db: 'mongodb://localhost/backend-development',
+      dboptions: dboptions
     },
-    port: 3000,
-    db: 'mongodb://localhost/backend-development'
-  },
 
-  test: {
-    root: rootPath,
-    app: {
-      name: 'backend'
+    test: {
+      root: rootPath,
+      app: {
+        name: 'backend'
+      },
+      port: 3000,
+      db: 'mongodb://localhost/backend-test',
+      dboptions: dboptions
     },
-    port: 3000,
-    db: 'mongodb://localhost/backend-test'
-  },
 
-  production: {
-    root: rootPath,
-    app: {
-      name: 'backend'
-    },
-    port: 3000,
-    db: 'mongodb://localhost/backend-production'
-  }
+    production: {
+      root: rootPath,
+      app: {
+        name: 'backend'
+      },
+      port: 3000,
+      db: 'mongodb://localhost/backend-production',
+      dboptions: dboptions
+    }
+  };
+  return config[env];
 };
-
-module.exports = config[env];

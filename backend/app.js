@@ -1,24 +1,29 @@
+'use strict';
 var express = require('express'),
   mongoose = require('mongoose'),
-  fs = require('fs'),
-  config = require('./config/config');
+  $q = require('q');
 
-mongoose.connect(config.db);
+var config = require('./config/config')(process.env.NODE_ENV);
+
+mongoose.connect(config.db, config.dbconfig);
+var dbready = $q.defer();
 var db = mongoose.connection;
 db.on('error', function () {
   throw new Error('unable to connect to database at ' + config.db);
 });
 
-var modelsPath = __dirname + '/app/models';
-fs.readdirSync(modelsPath).forEach(function (file) {
-  if (file.indexOf('.js') >= 0) {
-    require(modelsPath + '/' + file);
-  }
+db.once('open', function () {
+  dbready.resolve();
 });
 
 var app = express();
-
+app.set('dbready', dbready.promise);
+require('./config/models')(config);
 require('./config/express')(app, config);
 require('./config/routes')(app);
 
-app.listen(config.port);
+if (!module.parent) {
+  app.listen(config.port);
+} else {
+  module.exports = app;
+}

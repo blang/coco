@@ -1,19 +1,22 @@
 var mongoose = require('mongoose'),
   Event = mongoose.model('Event'),
-  $q = require('q'),
-  deferred = $q.defer();
-module.exports = deferred.promise;
+  $q = require('q');
+module.exports = function(){
+  var deferred = $q.defer();
 
-var event = new Event({
-  title: 'Mongodb',
-  url: 'mongodb',
-  text: 'Text for mongodb'
-});
+  var event = new Event({
+    title: 'Mongodb',
+    url: 'mongodb',
+    text: 'Text for mongodb'
+  });
 
-event.save(function(err){
-  if(err){
-    deferred.reject(err);
-  }else{
-    deferred.resolve();
-  }
-});
+  event.save(function(err){
+    if(err){
+      deferred.reject(err);
+    }else{
+      deferred.resolve();
+    }
+  });
+
+  return deferred.promise;
+};
