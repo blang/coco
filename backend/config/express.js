@@ -1,11 +1,13 @@
 'use strict';
-var express = require('express');
+var express = require('express'),
+  path = require('path');
 
 module.exports = function (app, config) {
   app.configure(function () {
     app.use(express.compress());
     app.set('port', config.port);
     app.set('views', config.root + '/app/views');
+    app.use(express.static(path.normalize(config.root + '/../frontend/app')));
     app.set('view engine', 'jade');
     app.use(express.logger('dev'));
     app.use(function (err, req, res, next) {
