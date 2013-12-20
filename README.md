@@ -1,4 +1,4 @@
-coco - Event Management [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://travis-ci.org/blang/coco.png?branch=master)](https://travis-ci.org/blang/coco) 
+coco - Event Management
 =====
 
 coco is a simple webapp to manage events for ArmA communities. It's designed to be simple and user-friendly.
@@ -7,7 +7,7 @@ Usage
 -----
 This project is not yet ready for production.
 
-Development
+Development [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://travis-ci.org/blang/coco.png?branch=master)](https://travis-ci.org/blang/coco)
 -----
 Required packages:
 
