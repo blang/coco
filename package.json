@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "server.js",
-    "test": "grunt test"
+    "test": "grunt test:ci"
   },
   "engines": {
     "node": ">=0.8.0"
