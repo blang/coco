@@ -21,14 +21,15 @@ First install Grunt globally
 Now, in the projects root directory
 
     npm install
+    bower install
 
 which installs all needed software and you're done.
 
 There are multiple `grunt` targets available:
 
 * `test` Lint and test backend and frontend
-* `testbe` Run backend tests
-* `testfe` Run frontend tests
+* `test:backend` Run backend tests
+* `test:frontend` Run frontend tests
 * `serve` Start development webserver
 * `serve:dist` Build project and start production server
 * `build` Build project

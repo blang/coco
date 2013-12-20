@@ -373,6 +373,11 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
+      },
+      unitci: {
+        configFile: 'karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
       }
     },
     // Test backend
@@ -412,23 +417,42 @@ module.exports = function (grunt) {
     grunt.task.run(['serve']);
   });
 
-  grunt.registerTask('testfe', [
-    'clean:server',
-    'concurrent:testfe',
-    'autoprefixer',
-    'karma'
-  ]);
 
-  grunt.registerTask('testbe', [
-    'env:test',
-    'jasmine_node'
-  ]);
-
-  grunt.registerTask('test', [
-    'jshint',
-    'testfe',
-    'testbe'
-  ]);
+  grunt.registerTask('test', function (target) {
+    switch (target) {
+      case 'backend':
+        grunt.task.run([
+          'env:test',
+          'jasmine_node'
+        ]);
+        break;
+      case 'frontend':
+        grunt.task.run([
+          'clean:server',
+          'concurrent:testfe',
+          'autoprefixer',
+          'karma:unit'
+        ]);
+        break;
+      case 'ci':
+        grunt.task.run([
+          'jshint',
+          'clean:server',
+          'concurrent:testfe',
+          'autoprefixer',
+          'karma:unitci',
+          'test:backend',
+        ]);
+        break;
+      default:
+        grunt.task.run([
+          'jshint',
+          'test:frontend',
+          'test:backend'
+        ]);
+        break;
+    }
+  });
 
   grunt.registerTask('build', [
     'clean:dist',
@@ -467,8 +491,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'testfe',
-    'testbe',
+    'test:frontend',
+    'test:backend',
     'build'
   ]);
 };
