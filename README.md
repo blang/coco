@@ -39,7 +39,7 @@ There are multiple `grunt` targets available:
 
 Example:
 
-    grunt jshint:frontend testfe serve
+    grunt jshint:frontend test:frontend serve
 
 Contributing
 -----
