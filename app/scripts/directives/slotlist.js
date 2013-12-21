@@ -8,6 +8,6 @@ angular.module('cocoApp')
       scope: {
         eventid: '='
       },
-      templateUrl: 'views/slotlist.html'
+      templateUrl: 'partials/slotlist.html'
     };
   }]);

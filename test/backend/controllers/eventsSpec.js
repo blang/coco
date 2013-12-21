@@ -34,4 +34,48 @@ describe('Event Controller', function () {
         });
     });
   });
+
+  describe('#get', function () {
+    it('respond with requested event', function (done) {
+      request(app)
+        .get('/api/events')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end(function (err, res) {
+          if (err) {
+            return done(err);
+          }
+          var eventid = res.body[0]._id;
+          request(app)
+            .get('/api/events/' + eventid)
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end(function (err, res) {
+              if (err) {
+                return done(err);
+              }
+              expect(res.body).toBeDefined();
+              expect(res.body._id).toBeDefined();
+              done();
+            });
+        });
+    });
+
+    it('respond with 404 on missing event', function (done) {
+      request(app)
+        .get('/api/events/123notfound')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(404)
+        .end(function (err, res) {
+          if (err) {
+            return done(err);
+          }
+          expect(res.body).toBeDefined();
+          done();
+        });
+    });
+  });
 });

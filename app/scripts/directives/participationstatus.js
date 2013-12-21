@@ -8,6 +8,6 @@ angular.module('cocoApp')
       scope: {
         eventid: '='
       },
-      templateUrl: 'views/participationstatus.html'
+      templateUrl: 'partials/participationstatus.html'
     };
   }]);
