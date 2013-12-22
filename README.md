@@ -23,7 +23,8 @@ Now, in the projects root directory
     npm install
     bower install
 
-which installs all needed software and you're done.
+which installs all needed software.
+Just start mongodb on localhost and you're done.
 
 There are multiple `grunt` targets available:
 
