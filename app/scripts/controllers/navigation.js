@@ -5,7 +5,9 @@ angular.module('cocoApp')
     $scope.navList = [
       { url: 'route1', title: 'Route 1', name: 'route1'},
       { url: 'route2', title: 'Route 2', name: 'route2'},
-      { url: 'events', title: 'Events', name: 'events'}
+      { url: 'events', title: 'Events', name: 'events'},
+      { url: 'login', title: 'Login', name: 'login'},
+      { url: 'userhome', title: 'Userhome', name: 'userhome'}
     ];
 
     function detectRoute(event, current) {

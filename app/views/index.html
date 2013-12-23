@@ -17,7 +17,7 @@
         <!-- endbuild -->
 </head>
   <!-- Dev only, use cocoApp instead! -->
-  <body ng-app="cocoApp">
+  <body ng-app="cocoApp" authWrapper>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -36,7 +36,13 @@
         <h3 class="text-muted">commanderyeo</h3>
       </div>
     </div>
-    <div class="container" ng-view="">
+    <div class="container">
+      <loginform id="loginform" class="hide">
+      </loginform>
+    </div>
+    <div id="content">
+      <div class="container" ng-view="">
+      </div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -73,10 +79,16 @@
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/directives/authwrapper.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/loginintercept.js"></script>
+        <script src="scripts/controllers/userhome.js"></script>
+        <script src="scripts/directives/loginform.js"></script>
         <script src="scripts/factories/events.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/events.js"></script>

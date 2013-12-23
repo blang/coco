@@ -4,7 +4,8 @@ angular.module('cocoApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'http-auth-interceptor'
 ])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -27,6 +28,19 @@ angular.module('cocoApp', [
         name: 'event',
         templateUrl: 'partials/event.html',
         controller: 'EventCtrl'
+      })
+      .when('/insufficientperms', {
+        templateUrl: 'partials/insufficientperms.html',
+      })
+      .when('/login', {
+        name: 'login',
+        templateUrl: 'partials/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/userhome', {
+        name: 'userhome',
+        templateUrl: 'partials/userhome.html',
+        controller: 'UserhomeCtrl'
       })
       .otherwise({
         redirectTo: '/'
