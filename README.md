@@ -46,6 +46,9 @@ Contributing
 -----
 If your interested in contributing bigger changes to this project please contact me first and open an issue to discuss first.
 
+Before commit run
+
+    grunt test
 
 License
 -----
